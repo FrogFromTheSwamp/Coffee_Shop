@@ -35,7 +35,8 @@
                     <div class="col-lg-4 offset-2">
                         <form action="#" class="shop__search">
                             <label class="shop__search-label" for="filter">Looking for</label>
-                            <input id="filter" type="text" placeholder="start typing here..." class="shop__search-input">
+                            <input id="filter" type="text" placeholder="start typing here..."
+                                class="shop__search-input">
                         </form>
                     </div>
                     <div class="col-lg-4">
@@ -73,6 +74,46 @@ import NavBarComponent from '@/components/NavBarComponent.vue';
 import ProductCard from '@/components/ProductCard.vue';
 
 export default {
-    components: { NavBarComponent, ProductCard }
+    components: { NavBarComponent, ProductCard },
+    data() {
+        cards: [
+            {
+                id: 0,
+                image: 'coffee-1.jpg',
+                title: 'Solimo Coffee Beans 2kg',
+                price: '10.73$'
+            },
+            {
+                id: 1,
+                image: 'coffee-2.jpg',
+                title: 'Presto Coffee Beans 1kg',
+                price: '15.99$'
+            },
+            {
+                id: 2,
+                image: 'coffee-3.jpg',
+                title: 'AROMISTICO Coffee 1kg',
+                price: '6.99$'
+            },
+            {
+                id: 3,
+                image: 'coffee-1.jpg',
+                title: 'Solimo Coffee Beans 2kg',
+                price: '10.73$'
+            },
+            {
+                id: 4,
+                image: 'coffee-2.jpg',
+                title: 'Presto Coffee Beans 1kg',
+                price: '15.99$'
+            },
+            {
+                id: 5,
+                image: 'coffee-3.jpg',
+                title: 'AROMISTICO Coffee 1kg',
+                price: '6.99$'
+            }
+        ]
+    }
 }
 </script>
