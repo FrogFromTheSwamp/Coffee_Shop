@@ -7,7 +7,9 @@
                     <nav-bar-component />
                 </div>
             </div>
-            <h1 class="title-big">Our Coffee</h1>
+            <title-component
+            :title="infoGoodsItem[0].title"
+            />
         </div>
     </div>
 
@@ -44,8 +46,18 @@
 
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue';
+import TitleComponent from '@/components/TitleComponent.vue';
 
 export default {
-    components: { NavBarComponent }
+    components: { NavBarComponent, TitleComponent },
+    data() {
+        return {
+            infoGoodsItem: [
+                {
+                    title: 'Our Coffee'
+                }
+            ]
+        }
+    }
 }
 </script>
