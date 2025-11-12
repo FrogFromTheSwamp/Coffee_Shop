@@ -43,40 +43,11 @@
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
                             <product-card 
+                            v-for="good in goods"
                             classItem="shop__item"
-                            :name="goods[0].title"
-                            :price="goods[0].price"
-                            :image="goods[0].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[1].title"
-                            :price="goods[1].price"
-                            :image="goods[1].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[2].title"
-                            :price="goods[2].price"
-                            :image="goods[2].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[3].title"
-                            :price="goods[3].price"
-                            :image="goods[3].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[4].title"
-                            :price="goods[4].price"
-                            :image="goods[4].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[5].title"
-                            :price="goods[5].price"
-                            :image="goods[5].image"
+                            :name="good.title"
+                            :price="good.price"
+                            :image="good.image"
                             />
                         </div>
                     </div>
@@ -90,6 +61,7 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import TitleComponent from "@/components/TitleComponent.vue";
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: { NavBarComponent, ProductCard, TitleComponent },
@@ -102,37 +74,37 @@ export default {
             ],
             goods: [
                 {
-                    id: 0,
+                    id: uuidv4(),
                     image: "coffee-1.jpg",
                     title: "Solimo Coffee Beans 2kg",
                     price: 10.73,
                 },
                 {
-                    id: 1,
+                    id: uuidv4(),
                     image: "coffee-2.jpg",
                     title: "Presto Coffee Beans 1kg",
                     price: 15.99,
                 },
                 {
-                    id: 2,
+                    id: uuidv4(),
                     image: "coffee-3.jpg",
                     title: "AROMISTICO Coffee 1kg",
                     price: 6.99,
                 },
                 {
-                    id: 3,
+                    id: uuidv4(),
                     image: "coffee-1.jpg",
                     title: "Solimo Coffee Beans 2kg",
                     price: 10.73,
                 },
                 {
-                    id: 4,
+                    id: uuidv4(),
                     image: "coffee-2.jpg",
                     title: "Presto Coffee Beans 1kg",
                     price: 15.99,
                 },
                 {
-                    id: 5,
+                    id: uuidv4(),
                     image: "coffee-3.jpg",
                     title: "AROMISTICO Coffee 1kg",
                     price: 6.99,

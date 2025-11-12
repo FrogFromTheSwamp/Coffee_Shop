@@ -58,40 +58,12 @@
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
                             <product-card 
+                            v-for="coffee_card in coffee"
+                            :key="coffee_card.id"
                             classItem="shop__item"
-                            :name="coffee[0].title"
-                            :price="coffee[0].price"
-                            :image="coffee[0].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="coffee[1].title"
-                            :price="coffee[1].price"
-                            :image="coffee[1].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="coffee[2].title"
-                            :price="coffee[2].price"
-                            :image="coffee[2].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="coffee[3].title"
-                            :price="coffee[3].price"
-                            :image="coffee[3].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="coffee[4].title"
-                            :price="coffee[4].price"
-                            :image="coffee[4].image"
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="coffee[5].title"
-                            :price="coffee[5].price"
-                            :image="coffee[5].image"
+                            :name="coffee_card.title"
+                            :price="coffee_card.price"
+                            :image="coffee_card.image"
                             />
                         </div>
                     </div>
@@ -105,6 +77,7 @@
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import TitleComponent from '@/components/TitleComponent.vue';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: { NavBarComponent, ProductCard, TitleComponent },
@@ -117,37 +90,37 @@ export default {
             ],
             coffee: [
                 {
-                    id: 0,
+                    id: uuidv4(),
                     image: 'coffee-1.jpg',
                     title: 'Solimo Coffee Beans 2kg',
                     price: 10.73
                 },
                 {
-                    id: 1,
+                    id: uuidv4(),
                     image: 'coffee-2.jpg',
                     title: 'Presto Coffee Beans 1kg',
                     price: 15.99
                 },
                 {
-                    id: 2,
+                    id: uuidv4(),
                     image: 'coffee-3.jpg',
                     title: 'AROMISTICO Coffee 1kg',
                     price: 6.99
                 },
                 {
-                    id: 3,
+                    id: uuidv4(),
                     image: 'coffee-1.jpg',
                     title: 'Solimo Coffee Beans 2kg',
                     price: 10.73
                 },
                 {
-                    id: 4,
+                    id: uuidv4(),
                     image: 'coffee-2.jpg',
                     title: 'Presto Coffee Beans 1kg',
                     price: 15.99
                 },
                 {
-                    id: 5,
+                    id: uuidv4(),
                     image: 'coffee-3.jpg',
                     title: 'AROMISTICO Coffee 1kg',
                     price: 6.99
