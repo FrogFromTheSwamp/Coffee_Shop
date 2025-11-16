@@ -5,12 +5,12 @@
                 <div class="col-lg-6 offset-lg-3">
                     <ul class="footer d-flex flex-wrap">
                         <link-nav-component 
-                            :link="links.header.link" 
-                            :className="links.header.className"
+                            :link="links.footer.link" 
+                            :className="links.footer.className"
                         >
-                        <img :src="require(`@/assets/logo/${links.header.icon}`)" :alt="links.header.icon">
+                        <img :src="require(`@/assets/logo/${links.footer.icon}`)" :alt="links.footer.icon">
                         </link-nav-component>
-                        <link-nav-component v-for="link in links.other" :key="link.id" :className="link.className"
+                        <link-nav-component v-for="link in links.other" :key="link.id" :className="links.footer.className"
                             :link="link.link" :name="link.text" />
                     </ul>
                 </div>
@@ -22,41 +22,12 @@
 
 <script>
 import LinkNavComponent from '@/components/LinkNavComponent.vue';
-import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: { LinkNavComponent },
-    data() {
-        return {
-            links: {
-                header: {
-                    id: uuidv4(),
-                    link: '/',
-                    icon: 'Logo_black.svg',
-                    className: "footer__item"
-                },
-                other: [
-                    {
-                        id: uuidv4(),
-                        text: 'Our coffee',
-                        link: '/our-coffee',
-                        className: "footer__item"
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'For your pleasure',
-                        link: '/goods-page',
-                        className: "footer__item"
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'Contact us',
-                        link: '/contacts',
-                        className: "footer__item"
-                    }
-                ]
-
-            }
+    computed: {
+        links() {
+            return this.$store.getters["getFooterLinks"]
         }
     }
 }

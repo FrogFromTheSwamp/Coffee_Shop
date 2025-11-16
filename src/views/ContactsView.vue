@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <title-component 
-                :title="infoContacts[0].title"
+                :title="'Contact us'"
                 />
             </div>
         </div>
@@ -19,7 +19,7 @@
                         <div class="title mt-5">Tell us about your tastes</div>
                         <img class="beanslogo mt-5" src="@/assets/logo/Beans_logo_dark.svg" alt="Beans logo">
     
-                        <form action="#" class="mt-5">
+                        <form @submit.prevent="submit" action="#" class="mt-5">
                             <div class="form-group row">
                                 <div class="col col-12 col-sm-3 d-flex align-items-center">
                                     <label for="name-input" class="mb-0">
@@ -81,7 +81,6 @@
                             <div class="row">
                                 <div class="col">
                                     <button 
-                                    @click.prevent="submitForm"
                                     class="btn btn-outline-dark send-btn"
                                     >Send us</button>
                                 </div>
@@ -102,12 +101,6 @@ export default {
     components: { NavBarComponent, TitleComponent },
     data() {
         return {
-            infoContacts: [
-                {
-                    title: 'Contact us'
-                }
-            ],
-
             form: {
                 name: '',
                 email: '',
@@ -118,7 +111,7 @@ export default {
     },
 
     methods: {
-        submitForm() {
+        submit() {
             console.log(this.form)
         }
     }

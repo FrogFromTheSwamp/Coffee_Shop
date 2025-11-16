@@ -21,43 +21,13 @@
 
 <script>
 import LinkNavComponent from '@/components/LinkNavComponent.vue';
-import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: { LinkNavComponent },
-
-    data() {
-        return {
-            links: {
-                header: {
-                    id: uuidv4(),
-                    link: '/',
-                    icon: 'Logo.svg',
-                    className: 'header__item'
-                },
-
-                other: [
-                    {
-                        id: uuidv4(),
-                        text: 'Our coffee',
-                        link: '/our-coffee',
-                        className: 'header__item'
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'For your pleasure',
-                        link: '/goods-page',
-                        className: 'header__item'
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'Contact us',
-                        link: '/contacts',
-                        className: 'header__item'
-                    },
-                ]
-            }
+    computed: {
+        links() {
+           return this.$store.getters["getHeaderLinks"]
         }
-    }
+    },
 }
 </script>

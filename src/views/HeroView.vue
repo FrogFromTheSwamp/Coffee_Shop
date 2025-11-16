@@ -9,7 +9,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <title-component :title="infoHero[0].title" />
+                        <title-component :title="'Everything You Love About Coffee'" />
                         <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
@@ -62,38 +62,14 @@
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import TitleComponent from '@/components/TitleComponent.vue';
-import { v4 as uuidv4 } from 'uuid';
 import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
     components: { NavBarComponent, ProductCard, TitleComponent },
-    data() {
-        return {
-            infoHero: [
-                {
-                    title: 'Everything You Love About Coffee'
-                }
-            ],
-            bestsellers: [
-                {
-                    id: uuidv4(),
-                    image: 'coffee-1.jpg',
-                    title: 'Solimo Coffee Beans 2kg',
-                    price: 10.73
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-2.jpg',
-                    title: 'Presto Coffee Beans 1kg',
-                    price: 15.99
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    title: 'AROMISTICO Coffee 1kg',
-                    price: 6.99
-                }
-            ]
+
+    computed: {
+        bestsellers() {
+            return this.$store.getters['getCards'].slice(0, 3)
         }
     },
 

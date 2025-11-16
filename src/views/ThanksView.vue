@@ -8,7 +8,7 @@
                 </div>
             </div>
             <title-component
-            :title="infoThanks[0].title"
+            :title="'Thank you'"
             />
         </div>
     </div>
@@ -41,12 +41,5 @@ import TitleComponent from '@/components/TitleComponent.vue';
 
 export default {
     components: { NavBarComponent, TitleComponent },
-    data() {
-        return {
-            infoThanks: {
-                title: 'Thank you'
-            }
-        }
-    }
 }
 </script>

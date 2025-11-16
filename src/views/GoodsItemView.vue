@@ -8,7 +8,7 @@
                 </div>
             </div>
             <title-component
-            :title="infoGoodsItem[0].title"
+            :title="'Our Coffee'"
             />
         </div>
     </div>
@@ -50,14 +50,5 @@ import TitleComponent from '@/components/TitleComponent.vue';
 
 export default {
     components: { NavBarComponent, TitleComponent },
-    data() {
-        return {
-            infoGoodsItem: [
-                {
-                    title: 'Our Coffee'
-                }
-            ]
-        }
-    }
 }
 </script>
