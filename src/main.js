@@ -4,8 +4,11 @@ import App from './App.vue'
 import './assets/scss/style.scss'
 import router from './router'
 import store from './store'
+import filter from './filters'
 
 Vue.config.productionTip = false
+
+
 
 new Vue({
   store,

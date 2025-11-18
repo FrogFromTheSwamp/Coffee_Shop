@@ -48,8 +48,11 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
-                            <product-card v-for="bestseller in bestsellers" :key="bestseller.id" classItem="best__item"
-                                :name="bestseller.title" :price="bestseller.price" :image="bestseller.image" />
+                            <product-card 
+                            v-for="bestseller in bestsellers" 
+                            :key="bestseller.id" 
+                            classItem="best__item"
+                            :cardItem="bestseller"/>
                         </div>
                     </div>
                 </div>
@@ -69,7 +72,7 @@ export default {
 
     computed: {
         bestsellers() {
-            return this.$store.getters['getCards'].slice(0, 3)
+            return this.$store.getters['getBestsellers']
         }
     },
 

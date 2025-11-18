@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 
-const cards = {
+const goods = {
   state: {
-    cardItem: [
+    goods: [
       {
         id: uuidv4(),
         image: "coffee-1.jpg",
@@ -41,11 +41,17 @@ const cards = {
       },
     ],
   },
+
   getters: {
-    getCards(state) {
-        return state.cardItem
+    getGoods(state) {
+      return state.goods;
+    },
+    getGoodsById(state) {
+      return (id) => {
+        return state.goods.find((card) => card.id === id)
+      }
     }
   },
 };
 
-export default cards;
+export default goods;

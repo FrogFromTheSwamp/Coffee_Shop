@@ -45,9 +45,8 @@
                             <product-card 
                             v-for="good in goods"
                             classItem="shop__item"
-                            :name="good.title"
-                            :price="good.price"
-                            :image="good.image"
+                            :cardItem="good"
+                            @onNavigate="navigate"
                             />
                         </div>
                     </div>
@@ -61,13 +60,20 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import TitleComponent from "@/components/TitleComponent.vue";
+import { navigate } from "@/mixins/navigate";
 
 export default {
     components: { NavBarComponent, ProductCard, TitleComponent },
     computed: {
         goods() {
-            return this.$store.getters['getCards']
+            return this.$store.getters['getGoods']
         }
-    }
+    },
+    data() {
+        return {
+            name: 'goods'
+        }
+    },
+    mixins: [navigate]
 };
 </script>
