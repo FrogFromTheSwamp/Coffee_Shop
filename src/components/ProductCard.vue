@@ -2,7 +2,7 @@
     <div :class="classItem" @click="onEmmit(cardItem.id)">
         <img :src="cardItem.image" :alt="cardItem.image">
         <div class="best__item-title">
-            {{ cardItem.title }}
+            {{ cardItem.name }}
         </div>
         <div class="best__item-price">{{ cardItem.price }}</div>
     </div>
