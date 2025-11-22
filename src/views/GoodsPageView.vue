@@ -74,6 +74,13 @@ export default {
             name: 'goods'
         }
     },
-    mixins: [navigate]
+    mixins: [navigate],
+    mounted() {
+        fetch('http://localhost:3000/goods')
+        .then(res => res.json())
+        .then(data => {
+            this.$store.dispatch('setGoodsData', data)
+        })
+    }
 };
 </script>

@@ -72,7 +72,8 @@
                                 <div class="col col-12">
                                     <textarea v-model="v$.message.$model" class="form-control" name="message"
                                         id="message" rows="5" placeholder="Leave your comments here"></textarea>
-                                    <span v-for="error in v$.message.$errors" :key="error.$uid" class="text-danger small">
+                                    <span v-for="error in v$.message.$errors" :key="error.$uid"
+                                        class="text-danger small">
                                         {{ error.$message }}
                                     </span>
                                 </div>
@@ -141,7 +142,7 @@ export default {
             name: { required },
             email: { required, email },
             phone: {},
-            agree: { required, checkboxValid: helpers.withMessage('Required element!', checkboxValid)},
+            agree: { required, checkboxValid: helpers.withMessage('Required element!', checkboxValid) },
             message: { required, maxLength: maxLength(20), minLength: helpers.withMessage('This value min 5 characters!', minLength) }
         }
     },
@@ -149,12 +150,31 @@ export default {
         async submit() {
             const isFormCorrect = await this.v$.$validate()
             if (!isFormCorrect) return
-            console.log({
+            const message = {
                 name: this.name,
                 email: this.email,
                 phone: this.phone,
                 message: this.message
+            }
+
+            fetch('http://localhost:3000/contacts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(message)
             })
+
+            this.resetForm()
+        },
+
+        resetForm() {
+            this.v$.$reset()
+            this.name = ''
+            this.email = ''
+            this.phone = ''
+            this.message = ''
+            this.agree = false
         }
     }
 }
